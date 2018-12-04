@@ -16,6 +16,6 @@ def index(request):
 def detail(request,book_id):
     try:
         book = Book.objects.get(id=book_id)
-    except book.DoesNotExists:
-        raise Http404('This book does not exist')
+    except Book.DoesNotExist:
+        raise Http404('This book does not exist, BREH!')
     return render(request,'books/detail.html',{'book':book})
